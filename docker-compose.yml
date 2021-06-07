@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  gradle-execute:
+    image: gradle:6.8-jdk8
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/home/gradle/project:cached
+    working_dir: /home/gradle/project
+    command: ["./gradlew","bootRun"]
